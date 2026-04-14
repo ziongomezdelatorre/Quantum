@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.5 Chrome/138.0.7204.251 Electron/37.6.1 Safari/537.36" version="28.2.5">
   <diagram name="Página-1" id="OA6efTy6roAt-m9XCJpp">
-    <mxGraphModel dx="4766" dy="1249" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="1600" math="0" shadow="0">
+    <mxGraphModel dx="3484" dy="1192" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="1600" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -67,6 +67,9 @@
         <mxCell id="A8AGlIc8Onvvb6PQGae6-4" value="Categoria" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="1630" y="660" width="100" height="40" as="geometry" />
         </mxCell>
+        <mxCell id="A8AGlIc8Onvvb6PQGae6-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="A8AGlIc8Onvvb6PQGae6-5" target="A8AGlIc8Onvvb6PQGae6-33" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="A8AGlIc8Onvvb6PQGae6-107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="A8AGlIc8Onvvb6PQGae6-5" target="A8AGlIc8Onvvb6PQGae6-76" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
@@ -127,8 +130,11 @@
         <mxCell id="A8AGlIc8Onvvb6PQGae6-32" value="id_cliente" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="-270" y="410" width="100" height="40" as="geometry" />
         </mxCell>
+        <mxCell id="A8AGlIc8Onvvb6PQGae6-33" value="Hora" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="-10" y="410" width="100" height="40" as="geometry" />
+        </mxCell>
         <mxCell id="A8AGlIc8Onvvb6PQGae6-34" value="MetodoPago" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry y="410" width="100" height="40" as="geometry" />
+          <mxGeometry x="120" y="410" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="A8AGlIc8Onvvb6PQGae6-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.8;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="A8AGlIc8Onvvb6PQGae6-5" target="A8AGlIc8Onvvb6PQGae6-31" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -266,7 +272,7 @@
           <mxGeometry x="1090" y="310" width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="TBHYC_mW-LIr9asdtbpE-1" value="Fecha" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="150" y="410" width="100" height="40" as="geometry" />
+          <mxGeometry x="240" y="410" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="TBHYC_mW-LIr9asdtbpE-3" value="Estado" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
           <mxGeometry x="-150" y="410" width="100" height="40" as="geometry" />
