@@ -48,12 +48,16 @@ CREATE TABLE cliente(
                 ON DELETE RESTRICT
                 );
                 
-                CREATE TABLE DetallePedido (
+                CREATE TABLE detalle_pedido (
     id_producto INT NOT NULL, 
     id_pedido INT NOT NULL, 
     precio_unitario DECIMAL(10,2) NOT NULL,
     cantidad INT NOT NULL,
     PRIMARY KEY (id_producto, id_pedido),
-    FOREIGN KEY (id_producto) REFERENCES Producto(id_producto),
-    FOREIGN KEY (id_pedido) REFERENCES Pedido(id_pedido)
+    FOREIGN KEY (id_producto) REFERENCES producto(id_producto)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE,
+    FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido)
+    ON DELETE RESTRICT 
+    ON UPDATE CASCADE
 );
