@@ -6,10 +6,29 @@ public class Producto {
 
 
     private String nombreProducto, descripcion;
+    private int id;
     private int idCategoria;
     private int stock;
     private boolean disponibilidad;
     private double precio;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Producto( int id,String nombreProducto, String descripcion, int idCategoria, int stock, boolean disponibilidad, double precio) {
+        this.nombreProducto = nombreProducto;
+        this.descripcion = descripcion;
+        this.id = id;
+        this.idCategoria = idCategoria;
+        this.stock = stock;
+        this.disponibilidad = disponibilidad;
+        this.precio = precio;
+    }
 
     public Producto() {
     }

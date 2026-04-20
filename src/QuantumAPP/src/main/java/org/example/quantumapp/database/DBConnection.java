@@ -8,13 +8,13 @@ public class DBConnection {
     private static Connection connection;
 
     public static Connection getConnection() throws SQLException {
-        if (connection == null){
+        if (connection == null || connection.isClosed()){
         createConnection();
         }
         return connection;
     }
 
-    public static void createConnection() throws SQLException {
+    private static void createConnection() throws SQLException {
         String user = "root";
         String pass = "";
         String database = "quantum";
