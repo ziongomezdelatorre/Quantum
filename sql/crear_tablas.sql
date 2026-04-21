@@ -8,16 +8,19 @@ CREATE TABLE cliente(
     contraseña VARCHAR(100) NOT NULL,
     direccion VARCHAR(100) NOT NULL  );
     
-    CREATE TABLE empleado (
-        id_empleado INT AUTO_INCREMENT PRIMARY KEY,
-         nombre VARCHAR(50) NOT NULL,
-      apellido VARCHAR(60) NOT NULL, 
-      dni VARCHAR(9) NOT NULL UNIQUE,
+
+
+     CREATE TABLE empleado (
+    id_empleado INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(60) NOT NULL, 
+    dni VARCHAR(9) NOT NULL UNIQUE,
     fecha_nacimiento DATE NOT NULL,
     correo VARCHAR(100) NOT NULL UNIQUE,
-    contraseña VARCHAR(100) NOT NULL ,
-    direccion VARCHAR(100) NOT NULL  );
-    
+    contraseña VARCHAR(100) NOT NULL,
+    direccion VARCHAR(100) NOT NULL,
+    rol ENUM('admin', 'empleado') NOT NULL DEFAULT 'empleado'
+);
     
     CREATE TABLE categoria (
         id_categoria INT AUTO_INCREMENT PRIMARY KEY,
@@ -36,17 +39,16 @@ CREATE TABLE cliente(
             ON DELETE RESTRICT
             );
             
-            CREATE TABLE pedido (
-                id_pedido INT AUTO_INCREMENT PRIMARY KEY,
-                fecha DATETIME NOT NULL,
-                metodo_pago ENUM( 'tarjeta', 'transferencia', 'cripto') NOT NULL,
-                estado ENUM( 'pendiente', 'enviado', 'entregado') NOT NULL DEFAULT 'pendiente',
-                id_cliente INT NOT NULL,
-                FOREIGN KEY(id_cliente)
-                REFERENCES cliente (id_cliente)
-                ON UPDATE CASCADE
-                ON DELETE RESTRICT
-                );
+           CREATE TABLE pedido (
+    id_pedido INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATETIME NOT NULL,
+    metodo_pago ENUM( 'tarjeta', 'transferencia', 'cripto') NOT NULL,
+    estado ENUM( 'pendiente', 'enviado', 'entregado') NOT NULL DEFAULT 'pendiente',
+    id_cliente INT NOT NULL,
+    id_empleado INT NOT NULL,
+    FOREIGN KEY(id_cliente) REFERENCES cliente (id_cliente) ON UPDATE CASCADE ON DELETE RESTRICT,
+    FOREIGN KEY(id_empleado) REFERENCES empleado (id_empleado) ON UPDATE CASCADE ON DELETE RESTRICT
+);
                 
                 CREATE TABLE detalle_pedido (
     id_producto INT NOT NULL, 
