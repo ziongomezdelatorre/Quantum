@@ -4,6 +4,8 @@ module org.example.quantumapp {
     requires java.sql;
     requires javafx.web;
 
+    requires javafx.graphics;
+
 
     opens org.example.quantumapp.controller to javafx.fxml;
 
