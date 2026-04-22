@@ -20,7 +20,7 @@ public class EmpleadoDAO {
     }
 
     public int insertarUsuario(Empleado empleado) throws SQLException {
-        String query =String.format("INSERT INTO %s (%s, %s, %s, %s, %s, %s, %s) VALUES (?, ?, ?, ?, ?, ?, ?)", SchemDB.TAB_EMPLEADO, SchemDB.COL_NAME,SchemDB.COL_SURNAME,SchemDB.COL_DNI,SchemDB.COL_DATE, SchemDB.COL_EMAIL,SchemDB.COL_PASS,SchemDB.COL_ADDRESS);
+        String query =String.format("INSERT INTO %s (%s, %s, %s, %s, %s, %s, %s ,%s) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", SchemDB.TAB_EMPLEADO, SchemDB.COL_NAME,SchemDB.COL_SURNAME,SchemDB.COL_DNI,SchemDB.COL_DATE, SchemDB.COL_EMAIL,SchemDB.COL_PASS,SchemDB.COL_ADDRESS,SchemDB.COL_ROL);
         try(PreparedStatement preparedStatement = connection.prepareStatement(query)){
             preparedStatement.setString(1,empleado.getNombre());
             preparedStatement.setString(2,empleado.getApellido());
@@ -29,6 +29,8 @@ public class EmpleadoDAO {
             preparedStatement.setString(5,empleado.getCorreo());
             preparedStatement.setString(6,empleado.getPass());
             preparedStatement.setString(7,empleado.getDireccion());
+            preparedStatement.setString(8,empleado.getRol());
+
 
             int rows =preparedStatement.executeUpdate();
             return rows;
@@ -38,7 +40,7 @@ public class EmpleadoDAO {
     }
 
     public int actualizarEmpleado(Empleado empleado) throws SQLException{
-        String query = String.format("UPDATE %s SET %s = ?, %s = ?, %s = ? , %s = ? , %s = ?, %s = ? WHERE %s = ? ;",SchemDB.TAB_EMPLEADO,SchemDB.COL_NAME,SchemDB.COL_SURNAME,SchemDB.COL_DATE,SchemDB.COL_EMAIL,SchemDB.COL_PASS, SchemDB.COL_ADDRESS,SchemDB.COL_DNI );
+        String query = String.format("UPDATE %s SET %s = ?, %s = ?, %s = ? , %s = ? , %s = ?, %s = ?, %s = ? WHERE %s = ? ;",SchemDB.TAB_EMPLEADO,SchemDB.COL_NAME,SchemDB.COL_SURNAME,SchemDB.COL_DATE,SchemDB.COL_EMAIL,SchemDB.COL_PASS, SchemDB.COL_ADDRESS,SchemDB.COL_ROL,SchemDB.COL_DNI );
      try(PreparedStatement preparedStatement = connection.prepareStatement(query)){
          preparedStatement.setString(1, empleado.getNombre());
          preparedStatement.setString(2,empleado.getApellido());
@@ -46,7 +48,8 @@ public class EmpleadoDAO {
          preparedStatement.setString(4,empleado.getCorreo());
          preparedStatement.setString(5,empleado.getPass());
          preparedStatement.setString(6,empleado.getDireccion());
-         preparedStatement.setString(7,empleado.getDni());
+         preparedStatement.setString(7,empleado.getRol());
+         preparedStatement.setString(8,empleado.getDni());
          int numeroFilasCambiadas = preparedStatement.executeUpdate();
          return numeroFilasCambiadas;
      }
@@ -68,7 +71,8 @@ public class EmpleadoDAO {
                     String correo = resultSet.getString(SchemDB.COL_EMAIL);
                     String pass = resultSet.getString(SchemDB.COL_PASS);
                     String direccion = resultSet.getString(SchemDB.COL_ADDRESS);
-                    Empleado empleado = new Empleado(nombre,apellido,direccion,dni,correo,pass,fechaNacimiento);
+                    String rol = resultSet.getString(SchemDB.COL_ROL);
+                    Empleado empleado = new Empleado(nombre,apellido,direccion,dni,correo,pass,fechaNacimiento,rol);
                     infoEmpleados.add(empleado);
 
                 }
@@ -96,7 +100,8 @@ public class EmpleadoDAO {
                     String correo = resultSet.getString(SchemDB.COL_EMAIL);
                     String pass = resultSet.getString(SchemDB.COL_PASS);
                     String direccion = resultSet.getString(SchemDB.COL_ADDRESS);
-                    empleado = new Empleado(nombre,apellido,direccion,dni,correo,pass,fechaNacimiento);
+                    String rol = resultSet.getString(SchemDB.COL_ROL);
+                    empleado = new Empleado(nombre,apellido,direccion,dni,correo,pass,fechaNacimiento,rol);
                 }
                 return empleado;
 
@@ -106,16 +111,35 @@ public class EmpleadoDAO {
 
 
     }
+    public Empleado buscarEmpleadoPorCorreoYContrasena(String correo, String pass) throws SQLException {
+        Empleado empleado = null;
+        String query = String.format("SELECT * FROM %s WHERE %s = ? AND %s = ?", SchemDB.TAB_EMPLEADO, SchemDB.COL_EMAIL, SchemDB.COL_PASS);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, correo);
+            preparedStatement.setString(2, pass);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    String nombre = resultSet.getString(SchemDB.COL_NAME);
+                    String apellido = resultSet.getString(SchemDB.COL_SURNAME);
+                    String dni = resultSet.getString(SchemDB.COL_DNI);
+                    Date fechaNacimiento = resultSet.getDate(SchemDB.COL_DATE);
+                    String direccion = resultSet.getString(SchemDB.COL_ADDRESS);
+                    String rol = resultSet.getString(SchemDB.COL_ROL);
+                    empleado = new Empleado(nombre, apellido, direccion, dni, correo, pass, fechaNacimiento, rol);
+                }
+            }
+        }
+        return empleado;
+    }
 
-    public int eliminarEmpleado(String dni) throws SQLException{
-        String query = String.format("DELETE FROM %s WHERE %s = ?",SchemDB.TAB_EMPLEADO,SchemDB.COL_DNI);
-        try(PreparedStatement preparedStatement = connection.prepareStatement(query)){
-            preparedStatement.setString(1,dni);
+    public int eliminarEmpleado(String dni) throws SQLException {
+        String query = String.format("DELETE FROM %s WHERE %s = ?", SchemDB.TAB_EMPLEADO, SchemDB.COL_DNI);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, dni);
             int filasAfectadas = preparedStatement.executeUpdate();
             return filasAfectadas;
         }
-
-
     }
-
 }
+
+

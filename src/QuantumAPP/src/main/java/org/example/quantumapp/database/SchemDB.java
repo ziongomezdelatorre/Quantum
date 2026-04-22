@@ -14,6 +14,7 @@ public interface SchemDB {
 
     String TAB_EMPLEADO="empleado";
     String COL_IDE = "id_empleado";
+    String COL_ROL = "rol";
 
 
     String TAB_PRODUCTOS ="producto";
@@ -31,6 +32,11 @@ public interface SchemDB {
     String COL_PAYMENT = "metodo_pago";
     String COL_STATUS = "estado";
     String COL_FKPEDIDO ="id_cliente";
+
+
+    String TAB_DETALLESPEDIDOS= "detalle_pedido";
+    String COL_UNITPRICE = "precio_unitario";
+    String COL_QUANTITY = "cantidad";
 
 
 

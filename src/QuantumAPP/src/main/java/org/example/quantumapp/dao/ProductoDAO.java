@@ -96,8 +96,8 @@ public class ProductoDAO {
                    double precio = resultSet.getDouble(SchemDB.COL_PRICE);
                    int idCategoria = resultSet.getInt(SchemDB.COL_FKPRODUCT);
                    // int id,String nombreProducto, String descripcion, int idCategoria, int stock, boolean disponibilidad, double precio
-                   Producto producto = new Producto(idProducto,nombreProducto,descripcion,idCategoria,stock,disponibilidad,precio);
-                   listaProductos.add(producto);
+
+                   listaProductos.add(new Producto(idProducto,nombreProducto,descripcion,idCategoria,stock,disponibilidad,precio));
 
                }
                return listaProductos;

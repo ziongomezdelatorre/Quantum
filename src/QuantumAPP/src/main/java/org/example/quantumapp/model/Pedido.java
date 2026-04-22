@@ -1,10 +1,11 @@
 package org.example.quantumapp.model;
 
-import java.sql.Date;
+
 import java.sql.Timestamp;
 
 public class Pedido {
     private int id;
+    private int idEmpleado;
     private int idCliente;
     private Timestamp fecha;
     private String metodoPago;
@@ -13,15 +14,9 @@ public class Pedido {
     public Pedido() {
     }
 
-    public Pedido(int idCliente, Timestamp fecha, String metodoPago, String estado) {
-        this.idCliente = idCliente;
-        this.fecha = fecha;
-        this.metodoPago = metodoPago;
-        this.estado = estado;
-    }
-
-    public Pedido(int id, int idCliente, Timestamp fecha, String metodoPago, String estado) {
+    public Pedido(int id, int idEmpleado, int idCliente, Timestamp fecha, String metodoPago, String estado) {
         this.id = id;
+        this.idEmpleado = idEmpleado;
         this.idCliente = idCliente;
         this.fecha = fecha;
         this.metodoPago = metodoPago;
@@ -34,6 +29,14 @@ public class Pedido {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public int getIdCliente() {

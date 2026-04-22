@@ -44,7 +44,8 @@ public class ClienteDAO {
                     preparedStatement.setString(2,cliente.getApellido());
                     preparedStatement.setDate(3,cliente.getFechaNacimiento());
                     preparedStatement.setString(4,cliente.getCorreo());
-                    preparedStatement.setString(5,cliente.getPass());
+                  preparedStatement.setString(5,cliente.getPass());
+
                     preparedStatement.setString(6,cliente.getDireccion());
                     preparedStatement.setString(7,cliente.getDni());
                     int numeroFilasCambiadas = preparedStatement.executeUpdate();
