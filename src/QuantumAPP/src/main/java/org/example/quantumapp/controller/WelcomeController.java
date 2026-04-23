@@ -26,7 +26,7 @@ private WebView vistaBienvenida;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         WebEngine webEngine = vistaBienvenida.getEngine();
-        URL url2 = getClass().getResource("/org/example/quantumapp/welcome.html");
+        URL url2 = getClass().getResource("/org/example/quantumapp/html/welcome.html");
         if (url2!=null){
             webEngine.load(url2.toExternalForm());
         }else {

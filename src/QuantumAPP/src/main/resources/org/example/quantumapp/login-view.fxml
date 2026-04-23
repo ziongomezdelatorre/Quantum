@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #010108;" stylesheets="@estiloLoginView.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.quantumapp.controller.LoginController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #010108;" stylesheets="@estilos/estiloLoginView.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.quantumapp.controller.LoginController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -27,6 +27,6 @@
       </TextField>
       <Text fill="#dcd8ec" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="quantum-title" text="Q U A N T U M" GridPane.halignment="CENTER" />
       <Button fx:id="btnAcceder" mnemonicParsing="false" styleClass="boton-quantum" text="Acceder" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-      <PasswordField alignment="CENTER" promptText="Introduce tu contraseña" styleClass="campo-password-quantum" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <PasswordField  fx:id="editPass"  alignment="CENTER" promptText="Introduce tu contraseña" styleClass="campo-password-quantum" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
    </children>
 </GridPane>

@@ -1,0 +1,60 @@
+
+
+
+.quantum-tab-pane {
+    -fx-background-color: transparent;
+}
+
+
+.quantum-tab-pane .tab-header-background {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent  transparent;
+    -fx-border-width: 0 0 1.5px 0;
+}
+
+
+.quantum-tab-pane .tab {
+    -fx-background-color: rgba(1, 1, 8, 0.6);
+    -fx-border-color: #dcd8ec;
+    -fx-border-width: 1.5px 1.5px 0 1.5px;
+    -fx-background-radius: 8px 8px 0 0;
+    -fx-border-radius: 8px 8px 0 0;
+    -fx-padding: 5px 30px 5px 30px;
+    -fx-cursor: hand;
+}
+
+
+.quantum-tab-pane .tab .tab-label {
+    -fx-font-family: 'VT323';
+    -fx-font-size: 24px;
+    -fx-text-fill: #dcd8ec;
+    -fx-alignment: center;
+}
+
+
+.quantum-tab-pane .tab:selected {
+    -fx-background-color: crimson;
+    -fx-border-color: #FF2040;
+}
+
+
+.quantum-tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, #FF2040, 10, 0.5, 0, 0);
+}
+
+
+.quantum-tab-pane .tab-content-area {
+    -fx-background-color: #dcd8ec;
+    -fx-padding: 20px;
+
+    fx-background-insets: 0;
+        -fx-border-width: 0;
+
+}
+
+
+.quantum-tab-pane .tab:focused {
+    -fx-focus-color: crimson;
+    -fx-faint-focus-color: crimson;
+}

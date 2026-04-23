@@ -59,6 +59,7 @@ public class LoginController implements Initializable {
                         loader =new FXMLLoader(HelloApplication.class.getResource("empleado-view.fxml"));
                         Parent parent = loader.load();
                        EmpleadoController controller= loader.getController();
+                       controller.setEmpleado(empleadoCorrecto);
                         Scene scene = new Scene(parent,1024,720);
 
                         Stage empleadoView = (Stage) btnAcceder.getScene().getWindow();
@@ -77,6 +78,7 @@ public class LoginController implements Initializable {
                         loader =new FXMLLoader(HelloApplication.class.getResource("admin-view.fxml"));
                         Parent parent = loader.load();
                         AdminController controller= loader.getController();
+                        controller.setAdmin(empleadoCorrecto);
                         Scene scene = new Scene(parent,1024,720);
 
                         Stage empleadoView = (Stage) btnAcceder.getScene().getWindow();
