@@ -19,11 +19,14 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.util.converter.IntegerStringConverter;
+import javafx.util.converter.DoubleStringConverter;
 import org.example.quantumapp.HelloApplication;
 import org.example.quantumapp.dao.EmpleadoDAO;
 import org.example.quantumapp.dao.PedidoDAO;
+import org.example.quantumapp.dao.ProductoDAO;
 import org.example.quantumapp.model.Empleado;
 import org.example.quantumapp.model.Pedido;
+import org.example.quantumapp.model.Producto;
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,7 +37,75 @@ import java.util.ResourceBundle;
 
 public class EmpleadoController implements Initializable {
     private Empleado empleado;
+    @FXML
+    private TableColumn<Producto, String> colDescripcion;
 
+    @FXML
+    private TableColumn<Producto, Integer> colIdCategoria;
+
+    @FXML
+    private TableColumn<Producto, String> colNombreProducto;
+
+    @FXML
+    private RadioButton botonChip;
+
+    @FXML
+    private RadioButton botonDisponible;
+
+    @FXML
+    private RadioButton botonNoDisponible;
+
+    @FXML
+    private RadioButton botonRA;
+
+    @FXML
+    private RadioButton botonRV;
+
+    @FXML
+    private DialogPane insertarDialogPaneProducto;
+
+
+    @FXML
+
+    private Button btnEliminarProducto;
+    @FXML
+
+    private Button btnInsertarProducto;
+
+    @FXML
+
+    private Button btnMostrarProductos;
+    @FXML
+
+    private TextField buscarProducto;
+
+    @FXML
+    private TableColumn<Producto, Double> colPrecio;
+
+    @FXML
+    private TableColumn<Producto, Boolean> colDisponibilidad;
+
+    @FXML
+    private TableColumn<Producto, Integer> colStock;
+
+    @FXML
+    private TableColumn<Producto, Integer> coldProducto;
+
+    @FXML
+    private TableView<Producto> tablaProductos;
+    private ObservableList<Producto> productos;
+
+    @FXML
+    private TextField editNombre;
+
+    @FXML
+    private TextField editDescripcion;
+
+    @FXML
+    private TextField editStock;
+
+    @FXML
+    private TextField editPrecio;
 
     @FXML
     private TextField editEstado;
@@ -56,6 +127,7 @@ public class EmpleadoController implements Initializable {
 
 
     PedidoDAO pedidoDAO;
+    ProductoDAO productoDAO;
 
     @FXML
     private Button btnEliminar;
@@ -143,6 +215,9 @@ public class EmpleadoController implements Initializable {
     public void instances() {
         pedidos = FXCollections.observableArrayList();
         tablaPedidos.setItems(pedidos);
+        productos = FXCollections.observableArrayList();
+        tablaProductos.setItems(productos);
+
 
     }
 
@@ -308,9 +383,179 @@ public class EmpleadoController implements Initializable {
                alert.showAndWait();
            }
        });
+            // Tab Productos
+        btnMostrarProductos.setOnAction(event -> {
+            try {
+                productoDAO = new ProductoDAO();
+                productos.clear();
+                productos.addAll(productoDAO.buscarTodosLosProducto());
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText("Carga exitosa");
+                alert.setContentText("Se han cargado todos los productos correctamente");
+                alert.showAndWait();
+
+            } catch (SQLException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error");
+                alert.setContentText("No se ha podido cargar los productos");
+                alert.showAndWait();
+            }
+
+        });
+        btnEliminarProducto.setOnAction(event -> {
+
+                    Producto productoSeleccionado = tablaProductos.getSelectionModel().getSelectedItem();
+            if (productoSeleccionado!=null){
+                try {
+                    productoDAO = new ProductoDAO();
+                    productoDAO.eliminarProducto(productoSeleccionado.getId());
+                    productos.remove(productoSeleccionado);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("Proceso completado");
+                    alert.setContentText("Se ha eliminado con éxito el producto con id "+productoSeleccionado.getId());
+                    alert.showAndWait();
+                } catch (SQLException e) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText("Error");
+                    alert.setContentText("No se ha podido eliminar el producto");
+                    alert.showAndWait();
+                }
+
+            }
+        });
 
 
+        buscarProducto.textProperty().addListener((observable, antiguoValorProducto, nuevoValorProducto) ->{
+            try {
+                productoDAO = new ProductoDAO();
+                productos.clear();
 
+                if (nuevoValorProducto == null  || nuevoValorProducto.isEmpty()){
+                    productos.addAll(productoDAO.buscarTodosLosProducto());
+                }else {
+
+                    Producto resultado = productoDAO.buscarProducto(nuevoValorProducto);
+                    if (resultado!=null){
+                        productos.add(resultado);
+                    }
+                }
+            }catch (NumberFormatException e){
+
+            }catch (SQLException e){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error");
+                alert.setContentText("No se ha podido acceder a la base de datos");
+                alert.showAndWait();
+            }
+
+        });
+
+
+        btnInsertarProducto.setOnAction(event -> {
+            insertarDialogPaneProducto.setVisible(true);
+            insertarDialogPaneProducto.toFront();
+
+        });
+
+        ToggleGroup categoriaGroup = new ToggleGroup();
+        botonChip.setToggleGroup(categoriaGroup);
+        botonRA.setToggleGroup(categoriaGroup);
+        botonRV.setToggleGroup(categoriaGroup);
+
+        ToggleGroup disponibilidadGroup = new ToggleGroup();
+        botonDisponible.setToggleGroup(disponibilidadGroup);
+        botonNoDisponible.setToggleGroup(disponibilidadGroup);
+
+        Button aceptarP = (Button) insertarDialogPaneProducto.lookupButton(ButtonType.OK);
+        Button cancelarP = (Button) insertarDialogPaneProducto.lookupButton(ButtonType.CANCEL);
+
+        cancelarP.setOnAction(event -> {
+            insertarDialogPaneProducto.setVisible(false);
+        });
+
+        aceptarP.setOnAction(event -> {
+            String nombre = editNombre.getText().trim();
+            String descripcion = editDescripcion.getText().trim();
+            String stockText = editStock.getText().trim();
+            String precioText = editPrecio.getText().trim();
+
+            if (nombre.isEmpty() || descripcion.isEmpty() || stockText.isEmpty() || precioText.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error");
+                alert.setContentText("Rellene todos los campos");
+                alert.showAndWait();
+                return;
+            }
+
+            RadioButton categoriaSeleccionada = (RadioButton) categoriaGroup.getSelectedToggle();
+            if (categoriaSeleccionada == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error");
+                alert.setContentText("Seleccione una categoría");
+                alert.showAndWait();
+                return;
+            }
+
+            RadioButton disponibilidadSeleccionada = (RadioButton) disponibilidadGroup.getSelectedToggle();
+            if (disponibilidadSeleccionada == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error");
+                alert.setContentText("Seleccione la disponibilidad");
+                alert.showAndWait();
+                return;
+            }
+
+            try {
+                int stock = Integer.parseInt(stockText);
+                double precio = Double.parseDouble(precioText);
+
+                int idCategoria;
+                if (categoriaSeleccionada == botonChip) idCategoria = 1;
+                else if (categoriaSeleccionada == botonRA) idCategoria = 2;
+                else idCategoria = 3;
+
+                boolean disponibilidad = (disponibilidadSeleccionada == botonDisponible);
+
+                Producto nuevoProducto = new Producto(nombre, descripcion, idCategoria, stock, disponibilidad, precio);
+                productoDAO = new ProductoDAO();
+                int idGenerado = productoDAO.insertarProducto(nuevoProducto);
+                if (idGenerado != -1) {
+                    nuevoProducto.setId(idGenerado);
+                    productos.add(nuevoProducto);
+                    insertarDialogPaneProducto.setVisible(false);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("Proceso completado");
+                    alert.setContentText("Se ha introducido el producto con id " + idGenerado);
+                    alert.showAndWait();
+                }
+            } catch (NumberFormatException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error");
+                alert.setContentText("Stock debe ser un número entero y Precio un número válido");
+                alert.showAndWait();
+            } catch (SQLException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Error");
+                alert.setContentText("Fallo al conectar con la base de datos");
+                alert.showAndWait();
+            }
+        });
+    }
+
+    public void actualizarProducto(Producto productoEditable){
+        try {
+            productoDAO = new ProductoDAO();
+            productoDAO.actualizarProducto(productoEditable);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Proceso completado");
+            alert.setContentText("Se ha modificado el producto con éxito");
+            alert.showAndWait();
+        }catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Error");
+            alert.setContentText("No se ha podido actualizar el producto");
+            alert.showAndWait();
+        }
     }
     public void actualizarPedido(Pedido pedidoEditable){
         try {
@@ -337,6 +582,23 @@ public class EmpleadoController implements Initializable {
         fechaCol.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         metodoCol.setCellValueFactory(new PropertyValueFactory<>("metodoPago"));
         estadoCol.setCellValueFactory(new PropertyValueFactory<>("estado"));
+
+        // int id, String nombreProducto, String descripcion, int idCategoria, int stock, boolean disponibilidad, double precio
+        coldProducto.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colNombreProducto.setCellValueFactory(new PropertyValueFactory<>("nombreProducto"));
+        colDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        colIdCategoria.setCellValueFactory(new PropertyValueFactory<>("idCategoria"));
+        colStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        colDisponibilidad.setCellValueFactory(new PropertyValueFactory<>("disponibilidad"));
+        colDisponibilidad.setCellFactory(col -> new TableCell<>() {
+            @Override
+            protected void updateItem(Boolean item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) setText(null);
+                else setText(item ? "Disponible" : "No Disponible");
+            }
+        });
+        colPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
 
 
         tablaPedidos.setEditable(true);
@@ -383,6 +645,39 @@ public class EmpleadoController implements Initializable {
 
         });
 
+        // producto
+        tablaProductos.setEditable(true);
+        colNombreProducto.setCellFactory(TextFieldTableCell.forTableColumn());
+        colNombreProducto.setOnEditCommit(productoStringCellEditEvent ->{
+            Producto producto = productoStringCellEditEvent.getRowValue();
+            String nombreViejo = producto.getNombreProducto();
+            producto.setNombreProducto(productoStringCellEditEvent.getNewValue());
+            actualizarProducto(producto);
+        } );
+
+        colDescripcion.setCellFactory(TextFieldTableCell.forTableColumn());
+        colDescripcion.setOnEditCommit(productoStringCellEditEvent -> {
+            Producto producto = productoStringCellEditEvent.getRowValue();
+            String descripcionVieja = producto.getDescripcion();
+            producto.setDescripcion(productoStringCellEditEvent.getNewValue());
+            actualizarProducto(producto);
+        });
+
+        colPrecio.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        colPrecio.setOnEditCommit(productoDoubleCellEditEvent -> {
+            Producto producto = productoDoubleCellEditEvent.getRowValue();
+            Double precioViejo = producto.getPrecio();
+            producto.setPrecio(productoDoubleCellEditEvent.getNewValue());
+            actualizarProducto(producto);
+        });
+
+        colStock.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        colPrecio.setOnEditCommit(productoDoubleCellEditEvent ->{
+            Producto producto = productoDoubleCellEditEvent.getRowValue();
+            Integer stockViejo = producto.getStock();
+            producto.setPrecio(productoDoubleCellEditEvent.getNewValue());
+            actualizarProducto(producto);
+        });
     }
     }
 

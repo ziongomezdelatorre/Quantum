@@ -20,21 +20,21 @@ public class ProductoDAO {
 
    public int insertarProducto(Producto producto) throws SQLException{
        String query =String.format("INSERT INTO %s (%s, %s, %s, %s, %s, %s) VALUES (?, ?, ?, ?, ?, ?)", SchemDB.TAB_PRODUCTOS, SchemDB.COL_PRODUCTNAME,SchemDB.COL_DESCRIPTION,SchemDB.COL_STOCK, SchemDB.COL_AVAILABILITY,SchemDB.COL_PRICE,SchemDB.COL_FKPRODUCT);
-       try(PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+       try(PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
            preparedStatement.setString(1,producto.getNombreProducto());
            preparedStatement.setString(2,producto.getDescripcion());
            preparedStatement.setInt(3,producto.getStock());
            preparedStatement.setBoolean(4,producto.isDisponibilidad());
            preparedStatement.setDouble(5,producto.getPrecio());
            preparedStatement.setInt(6,producto.getIdCategoria());
-           int rows =preparedStatement.executeUpdate();
-           return rows;
-
+           preparedStatement.executeUpdate();
+           try(ResultSet resultSet = preparedStatement.getGeneratedKeys()){
+               if(resultSet.next()){
+                   return resultSet.getInt(1);
+               }
+           }
        }
-
-
-
-
+       return -1;
    }
 
    public int actualizarProducto(Producto producto) throws SQLException{

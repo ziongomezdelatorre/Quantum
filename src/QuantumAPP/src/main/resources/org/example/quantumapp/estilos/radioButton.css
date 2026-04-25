@@ -1,0 +1,24 @@
+
+.radio-button {
+    -fx-text-fill: #dcd8ec;
+    -fx-font-family: 'VT323';
+    -fx-font-size: 20px;
+    -fx-cursor: hand;
+}
+
+
+.radio-button .radio {
+    -fx-background-color: transparent;
+    -fx-border-color: #dcd8ec;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-padding: 3px;
+}
+
+
+.radio-button:selected .dot {
+    -fx-background-color: #dcd8ec;
+    -fx-background-radius: 10px;
+    -fx-padding: 5px;
+
+}
