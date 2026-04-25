@@ -1,4 +1,75 @@
-.quantum-table{
--fx-background-radius : 20px
+/* 1. El fondo de la tabla general */
+.quantum-table {
+    -fx-background-radius: 10px;
+    -fx-background-color: #010108;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 20, 0.1, 0, 10);
+    -fx-border-radius: 10px;
 
 }
+
+
+.quantum-table .column-header-background {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+
+.quantum-table .column-header {
+    -fx-background-color: crimson;
+
+    -fx-font-family: 'VT323';
+    -fx-font-size: 15px;
+    -fx-border-width: 0;
+}
+
+
+.quantum-table .filler {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+
+.quantum-table .corner {
+    -fx-background-color: transparent;
+}
+
+.quantum-table .virtual-flow,
+.quantum-table .virtual-flow .viewport {
+    -fx-background-color: #010108;
+}
+
+.quantum-table .table-row-cell:empty {
+    -fx-background-color: #010108;
+    -fx-border-width: 0;
+}
+
+.quantum-table .table-row-cell {
+    -fx-background-color: #010108;
+    -fx-cell-size: 40px;
+}
+
+.quantum-table .table-cell {
+    -fx-text-fill: #dcd8ec;
+    -fx-font-family: 'VT323';
+    -fx-font-size: 20px;
+    -fx-alignment: center;
+    -fx-border-color: transparent transparent #302838 transparent; /* Línea separadora muy oscura */
+}
+
+.quantum-table .placeholder .label {
+    -fx-text-fill: #504858;
+    -fx-font-family: 'VT323';
+    -fx-font-size: 24px;
+}
+.quantum-table .table-row-cell:hover {
+    -fx-background-color: rgba(255, 32, 64, 0.1);
+}
+
+.quantum-table .table-row-cell:selected {
+    -fx-background-color: rgba(255, 32, 64, 0.3);
+}
+
+.quantum-table .table-row-cell:selected .table-cell {
+    -fx-text-fill: #ffffff;
+}
+

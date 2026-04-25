@@ -8,7 +8,7 @@ module org.example.quantumapp {
 
 
     opens org.example.quantumapp.controller to javafx.fxml;
-
     opens org.example.quantumapp to javafx.fxml;
+    opens org.example.quantumapp.model to javafx.base;
     exports org.example.quantumapp;
 }

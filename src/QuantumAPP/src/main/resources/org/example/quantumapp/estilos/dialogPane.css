@@ -1,0 +1,54 @@
+.quantum-dialogPane{
+-fx-background-color:#010108;
+
+-fx-background-radius: 10px;
+-fx-font-family: 'VT323';
+-fx-border-radius:10px;
+-fx-border-color:#dcd8ec;
+}
+
+.quantum-dialogPane .header-panel{
+-fx-background-color: #010108;
+-fx-border-width: 0 0 2px 0;
+    -fx-padding: 15px;
+   -fx-background-radius:10px 10px ;
+   -fx-border-radius: 10px 0px 0px;
+   -fx-border-color:#dcd8ec;
+
+
+}
+.dialog-pane .header-panel .label {
+    -fx-font-family: 'VT323';
+    -fx-font-size: 28px;
+    -fx-text-fill: #dcd8ec;
+    -fx-alignment: center;
+}
+.dialog-pane > .content.label {
+    -fx-font-family: 'VT323';
+    -fx-font-size: 20px;
+    -fx-text-fill: #dcd8ec;
+}
+
+.dialog-pane .button {
+    -fx-background-color: rgba(1, 1, 8, 0.6);
+    -fx-border-color: #ccc8dc;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-text-fill: #e8e4f4;
+    -fx-font-family: 'VT323';
+    -fx-font-size: 15px;
+
+    -fx-cursor: hand;
+
+} -fx-alignment: center;
+
+
+.dialog-pane .button:hover {
+
+    -fx-background-color: crimson;
+
+
+
+}
+

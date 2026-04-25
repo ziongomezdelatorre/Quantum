@@ -140,6 +140,21 @@ public class EmpleadoDAO {
             return filasAfectadas;
         }
     }
+
+    public int obtenerIdEmpleadoPorDni(String dni) throws SQLException {
+        String query = String.format("SELECT %s FROM %s WHERE %s = ?",
+                SchemDB.COL_IDE, SchemDB.TAB_EMPLEADO, SchemDB.COL_DNI);
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, dni);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getInt(SchemDB.COL_IDE);
+                }
+            }
+        }
+        return -1;
+    }
 }
 
 
