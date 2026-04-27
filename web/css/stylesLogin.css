@@ -1,0 +1,121 @@
+  @import url('https://cdn.jsdelivr.net/npm/@fontsource/syne/800.css');
+
+
+:root{
+--main-background-color: #010108;
+
+}
+
+*{
+    background-color: var(--main-background-color);
+    box-sizing: border-box;
+    font-family: 'Syne';
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topbar{
+    display: flex; 
+    flex-direction: column;
+        align-items: center;
+        justify-content: center;    
+}
+.topbar h1{
+    
+     background: linear-gradient(135deg, #ffffff 0%,#ccc8dc 14%,#f4f0ff 26%,#302838 42%,#b4adc4 57%,#f8f4ff 68%,#605870 80%,#e8e4f4 92%,#ffffff 100%);
+      background-size: 200% 200%; 
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 5rem;
+    
+    
+  
+}
+
+.topbar img{
+    height: 300px;
+    
+
+}
+
+
+.iniciar-sesion{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    color: crimson;
+    font-size: 2rem;
+    gap: 40px;
+      margin-top: -190px;
+   
+    
+    
+}
+
+
+
+.btnAcceder {
+text-decoration: none;
+color:whitesmoke;
+border-radius: 30px;
+background: radial-gradient(circle at center, #ff4444, #8b0000);
+border: 1px solid transparent;
+padding: 20px;
+font-size: 1.5rem;
+
+
+margin-top: 10px;
+transition: transform 0.3s ease;
+ 
+cursor: pointer;
+
+    
+}
+
+.btnAcceder:hover{
+    transform: translateY(-8px);
+    background: radial-gradient(circle at center, rgba(4, 0, 36, 1) 0%, rgba(41, 9, 121, 1) 35%, rgba(93, 0, 255, 1) 100% )
+}
+
+input{
+    font-family: 'Syne';
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    width: 700px;
+    border-color: whitesmoke;
+  font-size: 1.5rem;
+    color: whitesmoke;
+
+
+}
+input:focus {
+    outline: none;
+    border: 1px solid crimson;
+}
+
+
+input::placeholder{
+    color: rgb(145, 51, 70);
+}
+
