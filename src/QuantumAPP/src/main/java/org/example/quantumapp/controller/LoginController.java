@@ -69,7 +69,7 @@ public class LoginController implements Initializable {
                     }catch (IOException e){
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setHeaderText("Error");
-                        alert.setHeaderText("No se ha podido acceder al panel de control");
+                        alert.setContentText("No se ha podido acceder al panel de control");
                         alert.showAndWait();
                     }
                 } else if (empleadoCorrecto!=null && empleadoCorrecto.getRol().contains("admin")){
@@ -88,7 +88,7 @@ public class LoginController implements Initializable {
                     }catch (IOException e){
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setHeaderText("Error");
-                        alert.setHeaderText("No se ha podido acceder al panel de control");
+                        alert.setContentText("No se ha podido acceder al panel de control");
                         alert.showAndWait();
                     }
 

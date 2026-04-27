@@ -1,14 +1,246 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.quantumapp.controller.AdminController"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" style="-fx-background-color: #010108;" stylesheets="@estilos/adminEstilos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.quantumapp.controller.AdminController">
+   <top>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnCerrarSesion" maxHeight="48.0" maxWidth="48.0" minHeight="45.0" minWidth="47.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="47.0" style="-fx-border-radius: 24px; -fx-background-radius: 24px; -fx-padding: 0px;" styleClass="boton-admin" stylesheets="@estilos/adminEstilos.css" text="x" HBox.hgrow="NEVER">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="textoCambiante" alignment="CENTER" style="-fx-font-size: 50px;" styleClass="admin-title" text="QUANTUM ADMIN PANEL">
+               <HBox.margin>
+                  <Insets right="40.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" styleClass="admin-tab-pane" stylesheets="@estilos/adminTabPane.css" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
 
-</AnchorPane>
+          <!-- TAB PEDIDOS -->
+          <Tab text="Pedidos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="221.0" prefWidth="573.0" style="-fx-background-color: #010108;">
+                <children>
+                  <TableView fx:id="tablaPedidos" layoutX="145.0" layoutY="103.0" prefHeight="336.0" prefWidth="695.0" styleClass="admin-table" stylesheets="@estilos/adminTableView.css">
+                    <columns>
+                      <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
+                      <TableColumn fx:id="idEmpleadoCol" prefWidth="75.0" text="ID Empleado" />
+                      <TableColumn fx:id="idClienteCol" prefWidth="75.0" text="ID Cliente" />
+                      <TableColumn fx:id="fechaCol" prefWidth="74.0" text="Fecha" />
+                      <TableColumn fx:id="metodoCol" prefWidth="118.0" text="Método de Pago" />
+                      <TableColumn fx:id="estadoCol" prefWidth="78.0" text="Estado" />
+                    </columns>
+                    <columnResizePolicy>
+                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                  </TableView>
+                  <TextField fx:id="buscarPedido" alignment="CENTER" layoutX="145.0" layoutY="66.0" maxWidth="1000.0" minWidth="695.0" prefHeight="37.0" prefWidth="695.0" promptText="Introduce el ID del pedido que desea buscar" styleClass="admin-text-field" />
+                  <Button fx:id="btnMostrar" layoutX="113.0" layoutY="478.0" mnemonicParsing="false" styleClass="boton-admin" stylesheets="@estilos/adminEstilos.css" text="Mostrar pedidos" />
+                  <Button fx:id="btnEliminar" layoutX="368.0" layoutY="478.0" mnemonicParsing="false" styleClass="boton-admin" stylesheets="@estilos/adminEstilos.css" text="Eliminar Pedido" />
+                  <Button fx:id="btnInsertar" layoutX="636.0" layoutY="478.0" mnemonicParsing="false" styleClass="boton-admin" stylesheets="@estilos/adminEstilos.css" text="Insertar Pedido" />
+                  <DialogPane fx:id="insertarDialogPane" headerText="Inserte nuevo pedido" layoutX="234.0" layoutY="6.0" prefHeight="363.0" prefWidth="576.0" styleClass="admin-dialogPane" stylesheets="@estilos/adminDialogPane.css" visible="false">
+                    <buttonTypes>
+                      <ButtonType fx:constant="CANCEL" />
+                      <ButtonType fx:constant="OK" />
+                    </buttonTypes>
+                    <cursor><Cursor fx:constant="HAND" /></cursor>
+                    <content>
+                      <GridPane>
+                        <columnConstraints>
+                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                          <TextField fx:id="editIdCliente" alignment="CENTER" promptText="ID del cliente" />
+                          <TextField fx:id="editIMetodoPago" alignment="CENTER" promptText="Método de Pago" GridPane.rowIndex="1" />
+                          <TextField fx:id="editEstado" alignment="CENTER" promptText="Estado" GridPane.rowIndex="2" />
+                        </children>
+                      </GridPane>
+                    </content>
+                  </DialogPane>
+                </children>
+              </AnchorPane>
+            </content>
+          </Tab>
+
+          <!-- TAB PRODUCTOS -->
+          <Tab text="Productos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #010108;">
+                <children>
+                  <TableView fx:id="tablaProductos" layoutX="36.0" layoutY="71.0" prefHeight="400.0" prefWidth="912.0" styleClass="admin-table" stylesheets="@estilos/adminTableView.css">
+                    <columns>
+                      <TableColumn fx:id="coldProducto" prefWidth="84.0" text="ID" />
+                      <TableColumn fx:id="colNombreProducto" prefWidth="202.0" text="Nombre" />
+                      <TableColumn fx:id="colDescripcion" prefWidth="210.0" text="Descripcion" />
+                      <TableColumn fx:id="colIdCategoria" prefWidth="82.0" text="ID Categoria" />
+                      <TableColumn fx:id="colStock" prefWidth="121.0" text="Stock" />
+                      <TableColumn fx:id="colDisponibilidad" prefWidth="129.0" text="Disponibilidad" />
+                      <TableColumn fx:id="colPrecio" prefWidth="121.0" text="Precio" />
+                    </columns>
+                    <columnResizePolicy>
+                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                  </TableView>
+                  <TextField fx:id="buscarProducto" alignment="CENTER" layoutX="36.0" layoutY="34.0" maxWidth="1000.0" minWidth="912.0" prefHeight="37.0" prefWidth="912.0" promptText="Introduce el nombre del producto que desea buscar" styleClass="admin-text-field" />
+                  <Button fx:id="btnMostrarProductos" layoutX="86.0" layoutY="484.0" mnemonicParsing="false" styleClass="boton-admin" stylesheets="@estilos/adminEstilos.css" text="Mostrar productos" />
+                  <Button fx:id="btnEliminarProducto" layoutX="357.0" layoutY="484.0" mnemonicParsing="false" styleClass="boton-admin" stylesheets="@estilos/adminEstilos.css" text="Eliminar Producto" />
+                  <Button fx:id="btnInsertarProducto" layoutX="644.0" layoutY="484.0" mnemonicParsing="false" styleClass="boton-admin" stylesheets="@estilos/adminEstilos.css" text="Insertar Producto" />
+                  <DialogPane fx:id="insertarDialogPaneProducto" headerText="Inserte nuevo producto" layoutX="52.0" layoutY="14.0" prefHeight="481.0" prefWidth="694.0" styleClass="admin-dialogPane" stylesheets="@estilos/adminDialogPane.css" visible="false">
+                    <buttonTypes>
+                      <ButtonType fx:constant="CANCEL" />
+                      <ButtonType fx:constant="OK" />
+                    </buttonTypes>
+                    <cursor><Cursor fx:constant="HAND" /></cursor>
+                    <content>
+                      <GridPane alignment="CENTER" stylesheets="@estilos/adminRadioButton.css">
+                        <columnConstraints>
+                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                          <TextField fx:id="editNombre" alignment="CENTER" promptText="Nombre del producto" />
+                          <TextField fx:id="editDescripcion" alignment="CENTER" promptText="Descripción breve" GridPane.rowIndex="1" />
+                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                            <children>
+                              <RadioButton fx:id="botonChip" mnemonicParsing="false" text="Chip Neuronal">
+                                <HBox.margin><Insets left="20.0" right="10.0" /></HBox.margin>
+                              </RadioButton>
+                              <RadioButton fx:id="botonRA" mnemonicParsing="false" text="Realidad Aumentada">
+                                <HBox.margin><Insets right="10.0" /></HBox.margin>
+                              </RadioButton>
+                              <RadioButton fx:id="botonRV" mnemonicParsing="false" text="Realidad Virtual" />
+                            </children>
+                          </HBox>
+                          <TextField fx:id="editStock" alignment="CENTER" promptText="Stock" GridPane.rowIndex="3" />
+                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+                            <children>
+                              <RadioButton fx:id="botonDisponible" mnemonicParsing="false" text="Disponible">
+                                <HBox.margin><Insets left="20.0" right="10.0" /></HBox.margin>
+                              </RadioButton>
+                              <RadioButton fx:id="botonNoDisponible" mnemonicParsing="false" text="No Disponible" />
+                            </children>
+                          </HBox>
+                          <TextField fx:id="editPrecio" alignment="CENTER" promptText="Precio" GridPane.rowIndex="5" />
+                        </children>
+                      </GridPane>
+                    </content>
+                  </DialogPane>
+                </children>
+              </AnchorPane>
+            </content>
+          </Tab>
+
+          <!-- TAB EMPLEADOS -->
+          <Tab text="Empleados">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #010108;">
+                <children>
+                  <TableView fx:id="tablaEmpleados" layoutX="36.0" layoutY="71.0" prefHeight="400.0" prefWidth="912.0" styleClass="admin-table" stylesheets="@estilos/adminTableView.css">
+                    <columns>
+                      <TableColumn fx:id="colNombreEmp" prefWidth="130.0" text="Nombre" />
+                      <TableColumn fx:id="colApellidoEmp" prefWidth="130.0" text="Apellido" />
+                      <TableColumn fx:id="colDniEmp" prefWidth="100.0" text="DNI" />
+                      <TableColumn fx:id="colFechaNacEmp" prefWidth="110.0" text="Fecha Nac." />
+                      <TableColumn fx:id="colCorreoEmp" prefWidth="180.0" text="Correo" />
+                      <TableColumn fx:id="colDireccionEmp" prefWidth="152.0" text="Dirección" />
+                      <TableColumn fx:id="colRolEmp" prefWidth="110.0" text="Rol" />
+                    </columns>
+                    <columnResizePolicy>
+                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                  </TableView>
+                  <TextField fx:id="buscarEmpleadoAdmin" alignment="CENTER" layoutX="36.0" layoutY="34.0" maxWidth="1000.0" minWidth="912.0" prefHeight="37.0" prefWidth="912.0" promptText="Introduce el DNI del empleado que desea buscar" styleClass="admin-text-field" />
+                  <Button fx:id="btnMostrarEmpleados" layoutX="86.0" layoutY="484.0" mnemonicParsing="false" styleClass="boton-admin" stylesheets="@estilos/adminEstilos.css" text="Mostrar empleados" />
+                  <Button fx:id="btnEliminarEmpleado" layoutX="357.0" layoutY="484.0" mnemonicParsing="false" styleClass="boton-admin" stylesheets="@estilos/adminEstilos.css" text="Eliminar Empleado" />
+                  <Button fx:id="btnInsertarEmpleado" layoutX="644.0" layoutY="484.0" mnemonicParsing="false" styleClass="boton-admin" stylesheets="@estilos/adminEstilos.css" text="Insertar Empleado" />
+                  <DialogPane fx:id="insertarDialogPaneEmpleado" headerText="Inserte nuevo empleado" layoutX="52.0" layoutY="14.0" prefHeight="530.0" prefWidth="694.0" styleClass="admin-dialogPane" stylesheets="@estilos/adminDialogPane.css" visible="false">
+                    <buttonTypes>
+                      <ButtonType fx:constant="CANCEL" />
+                      <ButtonType fx:constant="OK" />
+                    </buttonTypes>
+                    <cursor><Cursor fx:constant="HAND" /></cursor>
+                    <content>
+                      <GridPane alignment="CENTER" stylesheets="@estilos/adminRadioButton.css">
+                        <columnConstraints>
+                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                          <TextField fx:id="editNombreEmp" alignment="CENTER" promptText="Nombre" />
+                          <TextField fx:id="editApellidoEmp" alignment="CENTER" promptText="Apellido" GridPane.rowIndex="1" />
+                          <TextField fx:id="editDniEmp" alignment="CENTER" promptText="DNI" GridPane.rowIndex="2" />
+                          <TextField fx:id="editCorreoEmp" alignment="CENTER" promptText="Correo electrónico" GridPane.rowIndex="3" />
+                          <TextField fx:id="editPassEmp" alignment="CENTER" promptText="Contraseña" GridPane.rowIndex="4" />
+                          <TextField fx:id="editDireccionEmp" alignment="CENTER" promptText="Dirección" GridPane.rowIndex="5" />
+                          <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="6">
+                            <children>
+                              <RadioButton fx:id="botonRolAdmin" mnemonicParsing="false" text="Admin">
+                                <HBox.margin><Insets left="20.0" right="20.0" /></HBox.margin>
+                              </RadioButton>
+                              <RadioButton fx:id="botonRolEmpleado" mnemonicParsing="false" text="Empleado" />
+                            </children>
+                          </HBox>
+                        </children>
+                      </GridPane>
+                    </content>
+                  </DialogPane>
+                </children>
+              </AnchorPane>
+            </content>
+          </Tab>
+
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

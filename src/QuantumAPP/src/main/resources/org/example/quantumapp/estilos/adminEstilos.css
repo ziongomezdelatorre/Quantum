@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'VT323';
+    src: url('../fonts/VT323-Regular.ttf');
+}
+
+.admin-title {
+    -fx-font-family: 'VT323';
+    -fx-font-size: 90px;
+    -fx-text-fill: #00FF41;
+}
+
+.admin-text-field {
+    -fx-font-family: 'VT323';
+    -fx-prompt-text-fill: #005500;
+    -fx-font-size: 20px;
+    -fx-background-color: #010108;
+    -fx-text-fill: #00FF41;
+    -fx-border-color: #005500;
+    -fx-border-width: 0 0 1.5px 0;
+    -fx-background-radius: 10px;
+    -fx-border-radius:  10px 10px 0px 0px;
+}
+
+.admin-text-field:focused {
+    -fx-border-color: #00FF41;
+}
+
+.boton-admin {
+    -fx-background-color: rgba(0, 0, 0, 0.6);
+    -fx-border-color: #00CC33;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-text-fill: #00FF41;
+    -fx-font-family: 'VT323';
+    -fx-font-size: 20px;
+    -fx-padding: 12px 40px;
+    -fx-cursor: hand;
+}
+
+.boton-admin:hover {
+    -fx-background-color: rgba(0, 255, 65, 0.15);
+    -fx-border-color: #00FF41;
+    -fx-text-fill: #ffffff;
+}
+
+.boton-admin:pressed {
+    -fx-background-color: rgba(0, 255, 65, 0.4);
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}

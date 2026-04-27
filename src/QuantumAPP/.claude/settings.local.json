@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Usuario/**)",
+      "Bash(grep -i \"\\\\.pdf$\")",
+      "Bash(mv matrixEstilos.css adminEstilos.css)",
+      "Bash(mv matrixTabPane.css adminTabPane.css)",
+      "Bash(mv matrixTableView.css adminTableView.css)",
+      "Bash(mv matrixDialogPane.css adminDialogPane.css)",
+      "Bash(mv matrixRadioButton.css adminRadioButton.css)"
+    ]
+  }
+}

@@ -86,9 +86,9 @@ public class EmpleadoDAO {
 
     public Empleado buscarEmpleado(String dni) throws SQLException{
         Empleado empleado = null;
-        String query = String.format("SELECT * FROM %s WHERE %s = ?",SchemDB.TAB_EMPLEADO,SchemDB.COL_DNI);
+        String query = String.format("SELECT * FROM %s WHERE %s LIKE ?",SchemDB.TAB_EMPLEADO,SchemDB.COL_DNI);
         try(PreparedStatement preparedStatement = connection.prepareStatement(query)){
-            preparedStatement.setString(1,dni);
+            preparedStatement.setString(1, "%" + dni + "%");
             try(ResultSet resultSet = preparedStatement.executeQuery()){
 
                 if (resultSet.next()){
@@ -101,7 +101,7 @@ public class EmpleadoDAO {
                     String pass = resultSet.getString(SchemDB.COL_PASS);
                     String direccion = resultSet.getString(SchemDB.COL_ADDRESS);
                     String rol = resultSet.getString(SchemDB.COL_ROL);
-                    empleado = new Empleado(nombre,apellido,direccion,dni,correo,pass,fechaNacimiento,rol);
+                    empleado = new Empleado(nombre,apellido,direccion,DNI,correo,pass,fechaNacimiento,rol);
                 }
                 return empleado;
 

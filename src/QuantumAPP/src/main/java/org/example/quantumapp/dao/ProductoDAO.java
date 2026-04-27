@@ -56,10 +56,10 @@ public class ProductoDAO {
 
    public Producto buscarProducto(String nombre) throws SQLException{
        Producto producto = null;
-       String query = String.format("SELECT * FROM %s WHERE %s = ?",SchemDB.TAB_PRODUCTOS,SchemDB.COL_PRODUCTNAME);
+       String query = String.format("SELECT * FROM %s WHERE %s LIKE ?",SchemDB.TAB_PRODUCTOS,SchemDB.COL_PRODUCTNAME);
        try(PreparedStatement  preparedStatement = connection.prepareStatement(query) ) {
 
-           preparedStatement.setString(1,nombre);
+           preparedStatement.setString(1, "%" + nombre + "%");
            try(ResultSet resultSet = preparedStatement.executeQuery()){
                if (resultSet.next()){
                    int idProducto = resultSet.getInt(SchemDB.COL_IDPRODUCT);

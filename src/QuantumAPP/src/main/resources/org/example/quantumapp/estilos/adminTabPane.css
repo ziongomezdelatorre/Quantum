@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'VT323';
+    src: url('../fonts/VT323-Regular.ttf');
+}
+
+.admin-tab-pane {
+    -fx-background-color:  #010108;
+}
+
+.admin-tab-pane .tab-header-background {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 1.5px 0;
+}
+
+.admin-tab-pane .tab {
+    -fx-background-color:  #010108;
+    -fx-border-color: #005500;
+    -fx-border-width: 1.5px 1.5px 0 1.5px;
+    -fx-background-radius: 4px 4px 0 0;
+    -fx-border-radius: 4px 4px 0 0;
+    -fx-padding: 5px 30px 5px 30px;
+    -fx-cursor: hand;
+}
+
+.admin-tab-pane .tab .tab-label {
+    -fx-font-family: 'VT323';
+    -fx-font-size: 24px;
+    -fx-text-fill: #00CC33;
+    -fx-alignment: center;
+}
+
+.admin-tab-pane .tab:selected {
+    -fx-background-color: #001a00;
+    -fx-border-color: #00FF41;
+}
+
+.admin-tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #00FF41;
+}
+
+.admin-tab-pane .tab-content-area {
+    -fx-background-color:  #010108;
+    -fx-padding: 20px;
+    -fx-border-width: 0;
+}
+
+.admin-tab-pane .tab:focused {
+    -fx-focus-color: #00FF41;
+    -fx-faint-focus-color: #00FF41;
+}
