@@ -38,7 +38,9 @@ gap: 30px;
 
 .brand-logo h2{
 color: whitesmoke;
-font-size: 2rem;
+font-size: 1.5rem;
+font-weight: 400;
+margin: 5px 0;
 }
 .brand-logo h1{
     
@@ -58,21 +60,25 @@ color:whitesmoke;
 border-radius: 30px;
 background: radial-gradient(circle at center, #ff4444, #8b0000);
 border: 1px solid transparent;
-padding: 20px;
-font-size: 20px;
+padding: 15px 30px;
+font-size: 1.1rem;
+min-width: 320px;
+letter-spacing: 1px;
+text-transform: uppercase;
 background-size: 200% 200%; 
 
 margin-top: 10px;
 transition: transform 0.3s ease;
  
 cursor: pointer;
-
+margin: 15px 0
 
 }
 
 .btn-entrar:hover{
-    transform: translateY(-8px);
-    background: radial-gradient(circle at center, rgba(4, 0, 36, 1) 0%, rgba(41, 9, 121, 1) 35%, rgba(93, 0, 255, 1) 100% )
+    transform: translateY(-5px);
+    background: radial-gradient(circle at center, rgba(4, 0, 36, 1) 0%, rgba(41, 9, 121, 1) 35%, rgba(93, 0, 255, 1) 100% );
+  
 }
 
 @keyframes gradient {

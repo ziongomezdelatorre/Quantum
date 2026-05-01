@@ -1,0 +1,354 @@
+
+ @import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;800&display=swap');
+
+
+:root{
+--main-background-color: #010108;
+
+}
+
+*{
+   
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    color: crimson;
+
+    font-family: 'Syne';
+    min-height: 100vh;
+    background-color: var(--main-background-color);
+}
+main{
+    margin-top: 200px;
+}
+nav{
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    gap:1rem;
+    flex-wrap: nowrap;
+
+    
+}
+li{
+    text-decoration: none;
+}
+.brand{
+    display: flex;
+    
+}
+
+.topbar{
+    background-color: rgba(1, 1, 8, 0.7);
+     backdrop-filter: blur(15px);
+   -webkit-backdrop-filter: blur(15px);
+   display: flex;
+   position: fixed;
+   z-index: 1000;
+   justify-content: space-between;
+   align-items: center;
+   top: 0;
+   left: 0;
+   width: 100%;
+  padding: 30px 30px 30px 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);;
+  
+
+   
+
+}
+
+.btn-registrar{
+    border-radius: 30px;
+    background-color: crimson;
+    color: white;
+}
+
+.btn-registrar:hover{}
+
+.topbar a{
+      color: #808090;
+      padding: 10px;
+}
+
+.topbar a:hover{
+    color: crimson;
+}
+
+.topbar h1{
+      background: linear-gradient(135deg, #ffffff 0%,#ccc8dc 14%,#f4f0ff 26%,#302838 42%,#b4adc4 57%,#f8f4ff 68%,#605870 80%,#e8e4f4 92%,#ffffff 100%);
+      background-size: 200% 200%; 
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: fadeIn 0.5s ease-in-out 0.5s both, gradient 10s linear infinite;
+}
+
+.hero{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background: radial-gradient(ellipse at center, rgba(112, 14, 34, 0.15) 0%, transparent 70%); 
+    
+}
+
+.hero h2{
+    font-size: 4rem;
+      background: linear-gradient(135deg, #ffffff 0%,#ccc8dc 14%,#f4f0ff 26%,#302838 42%,#b4adc4 57%,#f8f4ff 68%,#605870 80%,#e8e4f4 92%,#ffffff 100%);
+      background-size: 200% 200%; 
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: fadeIn 0.5s ease-in-out 0.5s both, gradient 10s linear infinite;
+   padding: 20px 0;
+   text-align: center;
+
+}
+.hero h3{
+    font-size: 2rem;
+}
+
+.hero span{
+  display: inline-block;
+
+    padding: 12px 25px;
+    background: rgba(220, 20, 60, 0.05); 
+    border: 1px solid rgba(220, 20, 60, 0.2); 
+    border-radius: 39px; 
+    background: linear-gradient(135deg, #ffffff 0%,#ccc8dc 14%,#f4f0ff 26%,#302838 42%,#b4adc4 57%,#f8f4ff 68%,#605870 80%,#e8e4f4 92%,#ffffff 100%);
+      background-size: 200% 200%; 
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  
+}
+.hero-specs{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  max-width: 1000px;
+  margin-bottom: 20px;
+    
+
+}
+
+
+
+.hero-specs h3{
+    width: 100%;
+    font-size: 1rem;
+    color: crimson;
+    text-transform: uppercase;
+    letter-spacing: 4px ;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+
+
+
+.hero p{
+    font-size: 1.5rem;
+    margin: 0;
+    color: #b0b0c0;
+    font-weight: 800;
+}
+
+
+.new-product{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 35px;
+   max-width: 1200px;
+   width: 100%;
+   text-align: center;
+   padding: 0 5%;
+}
+
+.btn-obtener{
+    color:whitesmoke;
+border-radius: 30px;
+ background-image: linear-gradient(to right, #dc143c, #7b0020, #dc143c); 
+border: 1px solid transparent;
+box-shadow: 0 0 20px rgba(220, 20, 60, 0.4);
+transition: 0.5s;
+text-transform: uppercase;
+padding: 20px;
+font-size: 1.5rem;
+background-size: 200% 200%; 
+
+cursor: pointer;
+font-weight: 800;
+display: inline;
+
+}
+
+.btn-obtener:hover{
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+   box-shadow: 0 0 35px rgba(220, 20, 60, 0.6);
+   transform: translateY(6px);
+}
+
+
+
+.hero img{
+    width: 100%;
+    height: auto;
+    max-width: 750px;
+    filter: drop-shadow(0 0 40px rgba(220, 20, 60, 0.25));
+    
+}
+.section-sobrenosotros{
+    display: flex;
+    min-height: 100vh;
+    padding: 160px 40px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    max-width: 80%;
+    text-align: center;
+    margin: 0 auto;
+
+ 
+}
+
+
+
+.section-sobrenosotros h2{
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #ffffff 0%,#ccc8dc 14%,#f4f0ff 26%,#302838 42%,#b4adc4 57%,#f8f4ff 68%,#605870 80%,#e8e4f4 92%,#ffffff 100%);
+      background-size: 200% 200%; 
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+   
+}
+
+.section-sobrenosotros h3{
+    color: white ;
+}
+.section-sobrenosotros p{
+    color: rgba(255, 255, 255, 0.85);
+  font-weight: 100;
+    text-align: left;
+    font-size: 2rem;
+    
+}
+
+
+.section-productos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+       
+  
+
+}
+
+
+
+
+.section-productos h2{
+    font-size: 2rem;
+    gap:30px;
+
+}
+
+ .productos-grid {
+    
+   display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(min-content, max-content);
+  gap: 1.5rem;
+   
+  }
+
+  .producto-card{
+      background: linear-gradient(135deg, #12040c, #0a0a18);
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding:20px;
+        margin: 2rem;
+  }
+
+  .producto-card:hover{
+     transform: translateY(-6px);
+  border-color:  #dc143c;
+  box-shadow: 0 30px 60px -20px rgba(220, 20, 60, 0.35);
+  }
+  .producto-card img{
+    width: 30%;
+    height: auto;
+      object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(220, 20, 60, 0.35))
+
+  }
+
+.footer{
+
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.footer-logo{
+    width: 30%;
+    height: auto;
+}
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes gradient {
+   0%   { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+    
+}
+
+
+
+
+

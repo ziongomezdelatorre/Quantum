@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang = "es">
+<html lang="es">
+
 <head>
 
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quantum</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-<link rel="stylesheet" href="css\styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 
 
 
@@ -17,35 +18,227 @@
 <body>
     <header class="topbar">
         <div class="brand">
-            <img src="assets\icons\logo_quantum.png" alt="Quantum logo" height="80px">
-             <h1>QUANTUM</h1>
-            
+            <img src="assets/icons/logo_quantum.png" alt="Quantum logo" height="80px">
+            <h1 href="">QUANTUM</h1>
+
 
         </div>
         <nav class="nav">
             <a href="#que-somos"> ¿Que somos?</a>
             <a href="#productos">Productos</a>
-            <a href="#iniciar-sesion">iniciar sesion</a>
-            <a href="#registrarse">Registrarse</a>
-            <a href="#noticias">Newswire</a>
+            <a href="newswire">Newswire</a>
+            <a href="#contacto">Contacta con nosotros</a>
+            <a href="login.html">Iniciar Sesion</a>
+            <a class="btn-registrar" href="registrar.html">Registrarse</a>
 
         </nav>
 
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero" id="inicio">
             <div class="new-product">
-            <h2 class="animate__animated animate__fadeInDown animate__delay-0.5s">TECNOLOGIA DEL AÑO 2100</h2>
-            
+                <h2 class="animate__animated animate__fadeInDown animate__delay-0.5s">TECNOLOGÍA DEL SIGLO XXII</h2>
+                <p class="animate__animated animate__fadeIn animate__delay-2s">Vive en el futuro con <strong>QuantumLink
+                        v1</strong></p>
+                <img src="assets/img/QuantumLink v1.png" class="animate__animated animate__fadeIn animate__delay-1s"
+                    alt="Biochip">
+                <div class="hero-specs animate__animated animate__fadeInDown animate__delay-2s">
+                    <h3>Especificaciones</h3>
+                    <span>Latencia neural a 0,1ms</span>
+                    <span>Ancho de banda de 10 Gbps</span>
+                    <span> Autonomia infinita</span>
+                    <span> Arquitectura tridimensional</span>
+
+                </div>
+                <div class="animate__animated animate__fadeInDown animate__delay-2s">
+                    <a href="#quantumlink" class="btn-obtener ">Obtener</a>
+                </div>
+
 
 
             </div>
         </section>
+        <section id="que-somos" class="section-sobrenosotros">
+            <h2>WE ARE FUTURE</h2>
+            <h3>En Quantum, no diseñamos tecnologia, diseñamos <strong>La Evolución Humana</strong> </h3>
+            <p>Somos una empresa especializada en crear y distribuir <strong>tecnologia de alto nivel.</strong> Buscamos
+                siempre revolucionar el mercado con nuestros productos.</p>
+            <p>Hemos conseguido romper la barrera entre el pensamiento y la accion. Mediante el uso de <strong>
+                    arquitecturas neuromórficas y fótonica de silicio</strong>, logramos que nuestros dispositivos
+                funcionen a la velocidad del cerebro humano y con un consumo de energia casi inexistente</p>
+
+
+        </section>
+
+
+
+
+        <section id="productos" class="section-productos">
+            <header class="header-productos">
+                <h2>NUESTRA TECH</h2>
+                <p class="productos-subtitle">Cuatro productos. Un ecosistema</p>
+
+            </header>
+
+            <div class="productos-grid">
+                <article class="producto-card">
+                    <div class="quantvision-card">
+                        <h3>QuantVision v3</h3>
+                        <img src="assets/img/QuantumVision v3.png" alt="">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">Experimenta la ultima version de nuestras gafas de realidad virtual
+                            con resolución 10K y campo de visión de 220°. Frecuencia de refresco de 500 Hz para una
+                            inmersión sin cortes</p>
+
+                    </div>
+                    <div class="card-price">
+                        <p>3.500 €</p>
+
+
+
+                    </div>
+
+                    <div class="card-botton">
+                        <a href="" class="btnComprar">Comprar</a>
+                    </div>
+
+                </article>
+
+                <article class="producto-card">
+                    <div class="quantumbio-card">
+                        <h3>QuantumBio</h3>
+
+
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">Nuestro chip subcutáneo esencial para pagos y mensajería cifrada y
+                            con autenticación biométrica. Compatible con NFC y Bluetooth 6.0.</p>
+                        <img src="" alt="">
+
+                    </div>
+                    <div class="card-price">
+                        <p>120€</p>
+                    </div>
+
+                    <div class="card-botton">
+                        <a href="" class="btnComprar">Comprar</a>
+                    </div>
+
+
+
+                </article>
+
+                <article class="producto-card" id="quantumlink">
+                    <div class="quantumlink-card">
+                        <h3>QuantumLink v1</h3>
+
+
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">Nuestra mas grande y ambiciosa tecnología. Interfaz
+                            cerebro-computadora de latencia 0,1 ms , que junto nuestros lentes AR Nano consiguen el
+                            ecosistema tecnológico más avanzado del mundo </p>
+
+
+                    </div>
+                    <div class="card-price">
+                        <p>3500€</p>
+                    </div>
+
+                    <div class="card-botton">
+                        <a href="" class="btnComprar">Comprar</a>
+                    </div>
+
+
+
+                </article>
+
+                <article class="producto-card">
+                    <div class="nano-card">
+                        <h3>Lentes AR Nano</h3>
+
+
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">Lentes de contacto con pantalla de realidad aumentada integrada.
+                            Resolución retinal 4K, peso inferior a 2 g. El complemento definitivo del QuantumLink v1.
+                        </p>
+
+
+                    </div>
+                    <div class="card-price">
+                        <p>3500€</p>
+                    </div>
+
+                    <div class="card-botton">
+                        <a href="" class="btnComprar">Comprar</a>
+                    </div>
+
+
+
+                </article>
+
+
+
+            </div>
+
+
+
+
+
+
+        </section>
+
+
+        <section id="contacto" class="section-contacto">
+            <header class="section-header">
+                <h2>Contacta con nosotros</h2>
+                <p>¿Ha habido algun problema con algun pedido o producto? Ponte en contacto con nosotros</p>
+            </header>
+            <form class="formulario-contacto" action="#" method="post">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre completo " required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="Introduce tu email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="3" placeholder="" required></textarea>
+                </div>
+                <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+            </form>
+        </section>
 
 
     </main>
-   
+
+    <footer class="footer">
+        <div class="footer-content">
+            <img class="footer-logo" src="assets/icons/logo_quantum.png" alt="" height="60">
+
+        </div>
+        <div class="footer-contacto">
+
+
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Quantum Inc. Todos los derechos reservados.</p>
+
+        </div>
+
+
+
+
+
+    </footer>
+
+
+
 
 
 
