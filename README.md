@@ -13,9 +13,8 @@ Quantum es una e-commerce de una corporación de tecnologia de alta gama. Este p
 * `/web`: Interfaz de usuario y diseño visual (HTML/CSS).
 * `/src`: Lógica de negocio y motor funcional en Java.
 * `/sql`: Scripts de creación, inserción y consultas de la base de datos.
-*  `/docs/sistemas`: Documentación de sistemas.
-* `/docs/entornos/`: Informe técnico de entorno de ejecución.
-* `/docs/empleabilidad`: Perfil profesional.
+*  `/docs/sistemas`: Informe Técnico de Entorno de Ejecución.
+* `/docs/empleabilidad`: Perfil profesional, Portfolio, Presentación del proyecto y Reflexión final.
 
 
 ## Instalación y ejecución
@@ -131,6 +130,11 @@ Base de Datos (MySQL vía JDBC)
 | iker.js01@quantum.es  |ikz_2001_secure |  empleado |
 
 ---
+
+## Información vital
+
+**Informacion adicional en la carpeta de docs**
+Hay información en la carpeta `/docs/sistemas/Informe técnico sistemas.pdf` donde se hablan más a profundidad sobre la instalación y otros aspectos. 
 
 ## Autor
 
