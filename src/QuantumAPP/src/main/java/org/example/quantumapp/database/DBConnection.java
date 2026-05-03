@@ -18,7 +18,7 @@ public class DBConnection {
         String user = "root";
         String pass = "";
         String database = "quantum";
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/"+database,user,pass );
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+database,user,pass );
 
     }
 }
