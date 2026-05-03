@@ -24,7 +24,7 @@ Quantum es una e-commerce de una corporación de tecnologia de alta gama. Este p
 ### Requisitos previos
 
 - Java JDK 23 o superior
-- MySQL Server 8 (conectado en el puerto `3307`)
+- MySQL Server 8 (conectado en el puerto `3306`).
 - Maven 3.x
 - IntelliJ IDEA (recomendado) o cualquier IDE compatible con Maven
 
