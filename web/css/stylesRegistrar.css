@@ -26,6 +26,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 40px 20px;
 }
 
 
@@ -34,6 +35,8 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 20px;
+    padding: 20px 40px;
 }
 
 .topbar img {
@@ -41,19 +44,22 @@ main {
 }
 
 .topbar h1 {
-    background: linear-gradient(135deg, #ffffff 0%,#ccc8dc 14%,#f4f0ff 26%,#302838 42%,#b4adc4 57%,#f8f4ff 68%,#605870 80%,#e8e4f4 92%,#ffffff 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #ccc8dc 14%, #f4f0ff 26%, #302838 42%, #b4adc4 57%, #f8f4ff 68%, #605870 80%, #e8e4f4 92%, #ffffff 100%);
     background-size: 200% 200%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    font-size: 5rem;
+    font-size: 4rem;
     animation: gradient 10s linear infinite;
+    margin: 0;
 }
 
 .topbar p {
     color: whitesmoke;
-    font-size: 1.7rem;
+    font-size: 2rem;
     text-align: center;
+    margin: 0;
+    padding: 40px;
 }
 
 
@@ -61,30 +67,39 @@ main {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 600px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
+    max-width: 700px;
+    align-items: stretch;
+    gap: 20px;
     color: crimson;
-    font-size: 2rem;
-    gap: 40px;
-    padding-bottom: 50px;
+    font-size: 1.2rem;
+    text-align: center;
     padding: 0 20px 50px 20px;
 }
 
 .iniciar-sesion div {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin: 10px;
 }
 
 .iniciar-sesion label {
     color: #808090;
-    padding: 30px;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    font-size: 1.4rem;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.iniciar-sesion p {
+    color: whitesmoke;
+}
+
+.iniciar-sesion a {
+    text-decoration: none;
+}
+
+.iniciar-sesion a:hover {
+    transform: translateY(4px);
 }
 
 
@@ -120,51 +135,53 @@ input::placeholder {
     background-image: linear-gradient(to right, #dc143c, #7b0020, #dc143c);
     border: 1px solid transparent;
     box-shadow: 0 0 20px rgba(220, 20, 60, 0.4);
-    padding: 20px;
-    font-size: 1.5rem;
+    padding: 14px;
+    font-size: 1.1rem;
     background-size: 200% 200%;
-    margin-top: 10px;
+    margin-top: 6px;
     transition: 0.5s;
     cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Syne';
 }
 
 .btnAcceder:hover {
     background-position: right center;
     color: #fff;
-    text-decoration: none;
     box-shadow: 0 0 35px rgba(220, 20, 60, 0.6);
-    transform: translateY(6px);
+    transform: translateY(4px);
 }
 
 
 @keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    100% {
-        background-position: 200% 50%;
-    }
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
 }
 
 
 @media (max-width: 768px) {
 
-    .topbar h1 {
-        font-size: 3.5rem;
+    .topbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
     }
 
-    .topbar img {
-        height: 180px;
+    .topbar h1 {
+        font-size: 2rem;
+    }
+
+    .topbar p {
+        text-align: center;
+    }
+
+    .fila-doble {
+        flex-direction: column;
+        gap: 20px;
     }
 
     .iniciar-sesion {
-        font-size: 1.5rem;
-    }
-
-    .btnAcceder {
-        width: 100%;
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
 }

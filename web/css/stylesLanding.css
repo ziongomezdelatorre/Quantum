@@ -1,94 +1,99 @@
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/syne/800.css');
 
-  @import url('https://cdn.jsdelivr.net/npm/@fontsource/syne/800.css');
 
-
-:root{
---main-background-color: #010108;
-
+:root {
+    --main-background-color: #010108;
 }
 
-*{
+* {
     background-color: var(--main-background-color);
     box-sizing: border-box;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     font-family: 'Syne';
     min-height: 100vh;
-   
 }
 
 
-.brand-logo{
- min-height: 80vh;
- text-align: center;
- font-size: 2.5rem;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
-gap: 30px;
-
-    
+.brand-logo {
+    min-height: 80vh;
+    text-align: center;
+    font-size: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    animation: aparecer 0.9s ease-in-out both;
 }
 
-.brand-logo h2{
-color: whitesmoke;
-font-size: 1.5rem;
-font-weight: 400;
-margin: 5px 0;
+.brand-logo h2 {
+    color: whitesmoke;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 5px 0;
 }
-.brand-logo h1{
-    
-    background: linear-gradient(135deg, #ffffff 0%,#ccc8dc 14%,#f4f0ff 26%,#302838 42%,#b4adc4 57%,#f8f4ff 68%,#605870 80%,#e8e4f4 92%,#ffffff 100%);
-      background-size: 200% 200%; 
+
+.brand-logo h1 {
+    background: linear-gradient(135deg, #ffffff 0%, #ccc8dc 14%, #f4f0ff 26%, #302838 42%, #b4adc4 57%, #f8f4ff 68%, #605870 80%, #e8e4f4 92%, #ffffff 100%);
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: fadeIn 0.5s ease-in-out 0.5s both, gradient 10s linear infinite;
-  
-}   
-
-.btn-entrar{
-  
-text-decoration: none;
-color:whitesmoke;
-border-radius: 30px;
-background: radial-gradient(circle at center, #ff4444, #8b0000);
-border: 1px solid transparent;
-padding: 15px 30px;
-font-size: 1.1rem;
-min-width: 320px;
-letter-spacing: 1px;
-text-transform: uppercase;
-background-size: 200% 200%; 
-
-margin-top: 10px;
-transition: transform 0.3s ease;
- 
-cursor: pointer;
-margin: 15px 0
-
+    animation: gradient 10s linear infinite;
 }
 
-.btn-entrar:hover{
-    transform: translateY(-5px);
-    background: radial-gradient(circle at center, rgba(4, 0, 36, 1) 0%, rgba(41, 9, 121, 1) 35%, rgba(93, 0, 255, 1) 100% );
-  
+
+.btn-entrar {
+    text-decoration: none;
+    color: whitesmoke;
+    border-radius: 30px;
+    background-image: linear-gradient(to right, #dc143c, #7b0020, #dc143c);
+    border: 1px solid transparent;
+    box-shadow: 0 0 20px rgba(220, 20, 60, 0.4);
+    transition: 0.5s;
+    text-transform: uppercase;
+    padding: 20px;
+    font-size: 1.5rem;
+    background-size: 200% 200%;
+    cursor: pointer;
+    margin: 15px 0;
 }
+
+.btn-entrar:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 0 35px rgba(220, 20, 60, 0.6);
+    transform: translateY(6px);
+}
+
 
 @keyframes gradient {
-   0%   { background-position: 0% 50%; }
-    100% { background-position: 200% 50%; }
-    
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
 }
 
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+        filter: blur(8px);
+    }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    to {
+        opacity: 1;
+        transform: none;
+        filter: blur(0);
+    }
 }

@@ -26,7 +26,6 @@
         <nav class="nav">
             <a href="#que-somos"> ¿Que somos?</a>
             <a href="#productos">Productos</a>
-            <a href="newswire">Newswire</a>
             <a href="#contacto">Contacta con nosotros</a>
             <a href="login.html">Iniciar Sesion</a>
             <a class="btn-registrar" href="registrar.html">Registrarse</a>
@@ -60,8 +59,9 @@
             </div>
         </section>
         <section id="que-somos" class="section-sobrenosotros">
+          
             <h2>WE ARE FUTURE</h2>
-            <h3>En Quantum, no diseñamos tecnologia, diseñamos <strong>La Evolución Humana</strong> </h3>
+            <h3>En Quantum, no diseñamos tecnología, diseñamos <strong>La Evolución Humana</strong></h3>
             <p>Somos una empresa especializada en crear y distribuir <strong>tecnologia de alto nivel.</strong> Buscamos
                 siempre revolucionar el mercado con nuestros productos.</p>
             <p>Hemos conseguido romper la barrera entre el pensamiento y la accion. Mediante el uso de <strong>
@@ -84,7 +84,7 @@
             <div class="productos-grid">
                 <article class="producto-card">
                     <div class="quantvision-card">
-                        <h3>QuantVision v3</h3>
+                        <h3>QuantumVision v3</h3>
                         <img src="assets/img/QuantumVision v3.png" alt="">
                     </div>
                     <div class="card-body">
@@ -101,7 +101,7 @@
                     </div>
 
                     <div class="card-botton">
-                        <a href="" class="btnComprar">Comprar</a>
+                        <a href="" class="btn-comprar">Comprar</a>
                     </div>
 
                 </article>
@@ -109,13 +109,13 @@
                 <article class="producto-card">
                     <div class="quantumbio-card">
                         <h3>QuantumBio</h3>
-
+                            <img src="assets/img/QuantumBio.png" alt="">
 
                     </div>
                     <div class="card-body">
                         <p class="card-description">Nuestro chip subcutáneo esencial para pagos y mensajería cifrada y
                             con autenticación biométrica. Compatible con NFC y Bluetooth 6.0.</p>
-                        <img src="" alt="">
+                        
 
                     </div>
                     <div class="card-price">
@@ -123,7 +123,7 @@
                     </div>
 
                     <div class="card-botton">
-                        <a href="" class="btnComprar">Comprar</a>
+                        <a href="" class="btn-comprar">Comprar</a>
                     </div>
 
 
@@ -133,6 +133,7 @@
                 <article class="producto-card" id="quantumlink">
                     <div class="quantumlink-card">
                         <h3>QuantumLink v1</h3>
+                        <img src="assets/img/QuantumLink v1.png" alt="">
 
 
                     </div>
@@ -148,7 +149,7 @@
                     </div>
 
                     <div class="card-botton">
-                        <a href="" class="btnComprar">Comprar</a>
+                        <a href="" class="btn-comprar">Comprar</a>
                     </div>
 
 
@@ -158,6 +159,7 @@
                 <article class="producto-card">
                     <div class="nano-card">
                         <h3>Lentes AR Nano</h3>
+                        <img src="assets/img/Lentes AR Nano.png" alt="">
 
 
                     </div>
@@ -173,7 +175,7 @@
                     </div>
 
                     <div class="card-botton">
-                        <a href="" class="btnComprar">Comprar</a>
+                        <a href="" class="btn-comprar">Comprar</a>
                     </div>
 
 
@@ -202,6 +204,19 @@
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre" placeholder="Nombre completo " required>
                 </div>
+
+                <div class="form-group">
+                    <label for="c-asunto">Asunto</label>
+                    <select id="c-asunto" name="asunto" required>
+                        <option value="">Selecciona un motivo…</option>
+                        <option>Soporte de producto</option>
+                        <option>Estado de un pedido</option>
+                        <option>Programa beta</option>
+                        <option>Prensa</option>
+                        <option>Otros</option>
+                    </select>
+
+                </div>
                 <div class="form-group">
                     <label for="email">Correo electrónico</label>
                     <input type="email" id="email" name="email" placeholder="Introduce tu email" required>
@@ -218,14 +233,46 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-content">
-            <img class="footer-logo" src="assets/icons/logo_quantum.png" alt="" height="60">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img class="footer-logo" src="assets/icons/logo_quantum.png" alt="" height="60">
+                <p>Ecosistema neuronal de alto rendimiento, fabricado en Madrid, Tokio y Palo Alto, California .</p>
+
+            </div>
+
+            <div class="footer-content">
+                <h4>PRODUCTOS</h4>
+                <a href="#quantumlink-card">QuantumLink v1</a>
+                <a href="#quantvision-card">QuantumVision v3</a>
+                <a href="#quantumbio-card">QuantumBio</a>
+                <a href="#nano-card">Lentes AR Nano</a>
+
+            </div>
+
+            <div class="footer-content">
+                <h4>COMPAÑÍA</h4>
+                <a href="#que-somos">Sobre nosotros</a>
+                <a href="#contacto">Contacto</a>
+                <a href="#contacto">Trabaja con nosotros</a>
+
+            </div>
+
+            <div class="footer-content">
+                <h4>CUENTA</h4>
+                <a href="login.html">Iniciar sesión</a>
+                <a href="registrar.html">Crear cuenta</a>
+                <a href="#contacto">Soporte</a>
+                <a href="#contacto">Estado del servicio</a>
+            </div>
+
+
+
+
 
         </div>
-        <div class="footer-contacto">
 
 
-        </div>
+
         <div class="footer-bottom">
             <p>© 2026 Quantum Inc. Todos los derechos reservados.</p>
 

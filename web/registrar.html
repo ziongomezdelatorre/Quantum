@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum — Registrarse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/stylesRegistrar.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <img src="assets/icons/logo_quantum.png" alt="Quantum-logo" height="120px">
+        </div>
+        <div>
+            <h1>QUANTUM</h1>
+            <p>Únete al futuro</p>
+        </div>
+    </header>
+
+    <main>
+        <form class="iniciar-sesion" action="paginaPrincipal.html">
+
+            <div>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Introduce tu nombre" required>
+            </div>
+            <div>
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" placeholder="Introduce tus apellidos" required>
+            </div>
+
+            <div>
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" placeholder="Introduce tu correo electrónico" required>
+            </div>
+            <div>
+                <label for="pass">Contraseña</label>
+                <input type="password" id="pass" name="contra" placeholder="Crea una contraseña" required>
+            </div>
+            <div>
+                <label for="pass-confirm">Confirmar contraseña</label>
+                <input type="password" id="pass-confirm" name="contra-confirm" placeholder="Repite tu contraseña"
+                    required>
+            </div>
+            <div>
+                <button type="submit" class="btnAcceder">Registrarse</button>
+            </div>
+            <p>
+                ¿Ya tienes cuenta?
+                <a href="login.html" style="color: crimson;">Inicia sesión</a>
+            </p>
+        </form>
+    </main>
+
+</body>
+
+</html>
